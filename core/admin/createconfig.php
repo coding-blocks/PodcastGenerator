@@ -4,12 +4,12 @@
 #
 # Created by Alberto Betella
 # http://podcastgen.sourceforge.net
-# 
+#
 # This is Free Software released under the GNU/GPL License.
 ############################################################
 
 ########### Security code, avoids cross-site scripting (Register Globals ON)
-if (isset($_REQUEST['GLOBALS']) OR isset($_REQUEST['absoluteurl']) OR isset($_REQUEST['amilogged']) OR isset($_REQUEST['theme_path'])) { exit; } 
+if (isset($_REQUEST['GLOBALS']) OR isset($_REQUEST['absoluteurl']) OR isset($_REQUEST['amilogged']) OR isset($_REQUEST['theme_path'])) { exit; }
 ########### End
 
 if(isUserLogged()) { //if logged
@@ -21,17 +21,17 @@ if(isUserLogged()) { //if logged
 
 	include ("$absoluteurl"."core/admin/VERSION.php"); //read PodcastGenerator version
 
-	
+
 	// Social networks are handled independently (through array) in the config.php file, so more can be added in future and some can also be excluded in the config file.
 	$social_networks_active_buttons = NULL;
 	foreach ($enablesocialnetworks as $singlesocialnetwork) {$social_networks_active_buttons .= $singlesocialnetwork.","; }
-	
-	
+
+
 	//New vars introduced in 2.2 This avoid a notice when upgrade
 	if (!isset($feed_iTunes_LINKS_Website)) $feed_iTunes_LINKS_Website = "";
 	if (!isset($feed_URL_replace)) $feed_URL_replace = "";
 	if (!isset($feed_iTunes_URL_replace)) $feed_iTunes_URL_replace = "";
-	
+
 	if (!isset($first_installation)) $first_installation = time();
 	//If not existing, generate 8 character key for this PG installation
 	if (!isset($installationKey)) $installationKey = random_str(8);
@@ -55,9 +55,9 @@ if(isUserLogged()) { //if logged
 	$podcastgen_version = "'.$podcastgen_version.'"; // Version
 
 	$first_installation = '.$first_installation.';
-	
+
 	$installationKey = "'.$installationKey.'";
-	
+
 	$scriptlang = "'.$scriptlang.'";
 
 	$url = "'.$url.'"; // Complete URL of the script (Trailing slash REQUIRED)
@@ -85,10 +85,10 @@ if(isUserLogged()) { //if logged
 	$episodeperpage = '.$episodeperpage.';
 
 	$enablestreaming = "'.$enablestreaming.'"; // Enable mp3 streaming? ("yes" or "no")
-	
+
 	$enablesocialnetworks = array('.$social_networks_active_buttons.'); // Enable social networks integration? value 1 (true) or 0 (false) for each social network. Array order: Facebook, Twitter, G+
 
-	$dateformat = "'.$dateformat.'"; // d-m-Y OR m-d-Y OR Y-m-d 
+	$dateformat = "'.$dateformat.'"; // d-m-Y OR m-d-Y OR Y-m-d
 
 	$freebox = "'.$freebox.'"; // enable freely customizable box
 
@@ -96,14 +96,14 @@ if(isUserLogged()) { //if logged
 
 	$enablepgnewsinadmin = "'.$enablepgnewsinadmin.'";
 
-	$strictfilenamepolicy = "'.$strictfilenamepolicy.'"; // strictly rename files (just characters A to Z and numbers) 
+	$strictfilenamepolicy = "'.$strictfilenamepolicy.'"; // strictly rename files (just characters A to Z and numbers)
 
 	$categoriesenabled = "'.$categoriesenabled.'";
-	
+
 	$cronAutoIndex = '.$cronAutoIndex.'; //Auto Index New Episodes via Cron
-	
+
 	$cronAutoRegenerateRSS = '.$cronAutoRegenerateRSS.'; //Auto regenerate RSS via Cron
-	
+
 	$cronAutoRegenerateRSScacheTime = '.$cronAutoRegenerateRSScacheTime.'; //Cache (in seconds)
 
 
@@ -114,7 +114,7 @@ if(isUserLogged()) { //if logged
 	$feed_iTunes_LINKS_Website = "'.$feed_iTunes_LINKS_Website.'";
 
 	$feed_URL_replace = "'.$feed_URL_replace.'";
-	
+
 	$feed_iTunes_URL_replace = "'.$feed_iTunes_URL_replace.'";
 
 	$podcast_title = "'.$podcast_title.'";
@@ -123,15 +123,15 @@ if(isUserLogged()) { //if logged
 
 	$podcast_description = "'.$podcast_description.'";
 
-	$author_name = "'.$author_name.'"; 
+	$author_name = "'.$author_name.'";
 
-	$author_email = "'.$author_email.'"; 
+	$author_email = "'.$author_email.'";
 
 	$itunes_category[0] = "'.$itunes_category[0].'"; // iTunes categories (mainCategory:subcategory)
 	$itunes_category[1] = "'.$itunes_category[1].'";
 	$itunes_category[2] = "'.$itunes_category[2].'";
 
-	$link = $url."?name="; // permalink URL of single episode (appears in the <link> and <guid> tags in the feed)
+	$link = $url.""; // permalink URL of single episode (appears in the <link> and <guid> tags in the feed)
 
 	$feed_language = "'.$feed_language.'"; // Language used in the XML feed (can differ from the script language).
 

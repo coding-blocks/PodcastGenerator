@@ -4,12 +4,12 @@
 #
 # Created by Alberto Betella
 # http://podcastgen.sourceforge.net
-# 
+#
 # This is Free Software released under the GNU/GPL License.
 ############################################################
 
 ########### Security code, avoids cross-site scripting (Register Globals ON)
-if (isset($_REQUEST['GLOBALS']) OR isset($_REQUEST['absoluteurl']) OR isset($_REQUEST['amilogged']) OR isset($_REQUEST['theme_path'])) { exit; } 
+if (isset($_REQUEST['GLOBALS']) OR isset($_REQUEST['absoluteurl']) OR isset($_REQUEST['amilogged']) OR isset($_REQUEST['theme_path'])) { exit; }
 ########### End
 
 // check if user is already logged in
@@ -26,16 +26,16 @@ if(isUserLogged()) {
 			$enablestreaming = $streaming;
 		}
 
-		
+
 		// social networks integration
 		$socialnetworks = $_POST['socialnetworks'];
 		if ($socialnetworks != "") {
 			$enablesocialnetworks = array($socialnetworks); //create an array with values 1 or 0 for each social networks
 		}
-		
-		
-		
-		
+
+
+
+
 		//freebox
 		$fbox = $_POST['fbox'];
 		if ($fbox != "") {
@@ -54,14 +54,14 @@ if(isUserLogged()) {
 		$newsinadmin = $_POST['newsinadmin'];
 		if ($newsinadmin != "") {
 			$enablepgnewsinadmin = $newsinadmin;
-		}	
+		}
 
 
 		// strict rename
 		$strictfilename = $_POST['strictfilename'];
 		if ($strictfilename != "") {
 			$strictfilenamepolicy = $strictfilename;
-		}			
+		}
 
 		// recent in home
 		$recent = $_POST['recent'];
@@ -73,7 +73,7 @@ if(isUserLogged()) {
 		$recentinfeed = $_POST['recentinfeed'];
 		if ($recentinfeed != "") {
 			$recent_episode_in_feed = $recentinfeed;
-		}				
+		}
 
 		// date format
 		$selectdateformat = $_POST['selectdateformat'];
@@ -122,9 +122,9 @@ if(isUserLogged()) {
 		$PG_mainbody .= '></p>';
 
 		####
-		
-		
-		
+
+
+
 		########## social networks integration
 
 		$PG_mainbody .= '<br /><br /><p><label for="socialnetworks"><b>'._("Enable Social Networks Integration?").'</b></label></p>
@@ -144,7 +144,7 @@ if(isUserLogged()) {
 		$PG_mainbody .= '></p>';
 
 		####
-		
+
 
 
 		########## freebox
@@ -239,16 +239,16 @@ if(isUserLogged()) {
 
 			<option value=\'4\'';
 		if ($max_recent == 4) { $PG_mainbody .= ' selected'; }
-		$PG_mainbody .= '>4</option>  
+		$PG_mainbody .= '>4</option>
 
 			<option value=\'6\'';
 		if ($max_recent == 6) { $PG_mainbody .= ' selected'; }
 		$PG_mainbody .= '>6</option>
-		
+
 			<option value=\'8\'';
 		if ($max_recent == 8) { $PG_mainbody .= ' selected'; }
 		$PG_mainbody .= '>8</option>
-		
+
 			<option value=\'10\'';
 		if ($max_recent == 10) { $PG_mainbody .= ' selected'; }
 		$PG_mainbody .= '>10</option>
@@ -287,7 +287,7 @@ if(isUserLogged()) {
 
 			<option value=\'All\'';
 		if ($recent_episode_in_feed == "All") { $PG_mainbody .= ' selected'; }
-		$PG_mainbody .= '>'._("All").'</option>  
+		$PG_mainbody .= '>'._("All").'</option>
 
 			</select>
 			';
@@ -345,9 +345,9 @@ $listWithLanguages = languagesList($absoluteurl,TRUE);
 
 		}
 		$PG_mainbody .= '</select>
-		
+
 				<p><a href="http://podcastgen.sourceforge.net/documentation/FAQ-localization" target="_blank"><i class="fa fa-hand-o-right"></i> '._("Looking for another language?").'</a></p>
-		';	
+		';
 
 
 		if (isset($installationKey) AND isset($cronAutoIndex) AND $cronAutoIndex == TRUE){

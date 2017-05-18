@@ -4,12 +4,12 @@
 #
 # Created by Alberto Betella
 # http://podcastgen.sourceforge.net
-# 
+#
 # This is Free Software released under the GNU/GPL License.
 ############################################################
 
 ########### Security code, avoids cross-site scripting (Register Globals ON)
-if (isset($_REQUEST['GLOBALS']) OR isset($_REQUEST['absoluteurl']) OR isset($_REQUEST['amilogged']) OR isset($_REQUEST['theme_path'])) { exit; } 
+if (isset($_REQUEST['GLOBALS']) OR isset($_REQUEST['absoluteurl']) OR isset($_REQUEST['amilogged']) OR isset($_REQUEST['theme_path'])) { exit; }
 ########### End
 
 if (file_exists("../config.php")) { //if config.php already exists stop the script
@@ -34,7 +34,7 @@ $configfiletocreate = '<?php
 
 $podcastgen_version = "'.$podcastgen_version.'"; // Version
 
-$first_installation = '.time().'; 
+$first_installation = '.time().';
 
 $installationKey = "'.random_str(8).'";
 
@@ -68,7 +68,7 @@ $enablestreaming = "yes"; // Enable mp3 streaming? ("yes" or "no")
 
 $enablesocialnetworks = array(1,1,1); // Enable social networks integration? value 1 (true) or 0 (false) for each social network. Array order: Facebook, Twitter, G+
 
-$dateformat = "d-m-Y"; // d-m-Y OR m-d-Y OR Y-m-d 
+$dateformat = "d-m-Y"; // d-m-Y OR m-d-Y OR Y-m-d
 
 $freebox = "yes"; // enable freely customizable box
 
@@ -76,7 +76,7 @@ $enablehelphints = "yes";
 
 $enablepgnewsinadmin = "yes";
 
-$strictfilenamepolicy = "yes"; // strictly rename files (just characters A to Z and numbers) 
+$strictfilenamepolicy = "yes"; // strictly rename files (just characters A to Z and numbers)
 
 $categoriesenabled = "yes";
 
@@ -102,15 +102,15 @@ $podcast_subtitle = "'._("Subtitle").'";
 
 $podcast_description = "'._("A little description of your podcast.").'";
 
-$author_name = "Test"; 
+$author_name = "Test";
 
-$author_email = "test@nospam.com"; 
+$author_email = "test@nospam.com";
 
 $itunes_category[0] = "Arts"; // iTunes categories (mainCategory:subcategory)
 $itunes_category[1] = "";
 $itunes_category[2] = "";
 
-$link = $url."?name="; // permalink URL of single episode (appears in the <link> and <guid> tags in the feed)
+$link = $url.""; // permalink URL of single episode (appears in the <link> and <guid> tags in the feed)
 
 $feed_language = "'.$_POST['setuplanguage'].'"; // Language used in the XML feed (can differ from the script language).
 
