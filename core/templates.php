@@ -209,7 +209,7 @@ $freeboxcontent = NULL;
 
 
 
-
+	
 
 	# Othere Theme elements replacing
 	$theme_file_contents = str_replace("-----PG_MAINBODY-----", $PG_mainbody, $theme_file_contents);
@@ -301,6 +301,9 @@ $theme_file_contents = str_replace("-----PG_MENUARCHIVE-----", $contentmenuarchi
 	#FOOTER
 
 	$definefooter = _("Powered by").' <a href="http://podcastgen.sourceforge.net" title="'._("Podcast Generator")._(", an open source podcast publishing solution").'">'._("Podcast Generator").'</a>'._(", an open source podcast publishing solution");
+
+	if( !empty($embedCode) )
+		$definefooter = html_entity_decode(stripslashes($embedCode)) . $definefooter;
 
 	$theme_file_contents = str_replace("-----PG_FOOTER-----", $definefooter, $theme_file_contents);
 
