@@ -141,6 +141,8 @@ if(isUserLogged()) { //if logged
 
 	$explicit_podcast = "'.$explicit_podcast.'"; //does your podcast contain explicit language? ("yes", "no" or "clean")
 
+	$embedCode = "'.htmlentities( addslashes( $embedCode) ).'"; // embed code
+
 	// END OF CONFIGURATION
 
 	?>';

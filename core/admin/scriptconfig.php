@@ -88,6 +88,8 @@ if(isUserLogged()) {
 			$scriptlang = $scriptlanguage;
 		}
 
+		$embedCode = $_POST['embedCode'];
+
 		include ("$absoluteurl"."core/admin/createconfig.php"); //regenerate config.php
 
 		$PG_mainbody .= '<p>'._("The information has been successfully sent.").'</p>';
@@ -348,6 +350,12 @@ $listWithLanguages = languagesList($absoluteurl,TRUE);
 
 				<p><a href="http://podcastgen.sourceforge.net/documentation/FAQ-localization" target="_blank"><i class="fa fa-hand-o-right"></i> '._("Looking for another language?").'</a></p>
 		';
+
+		## EMBED COde
+
+		$PG_mainbody .= '<br /><br /><br /><p><label for="scriptlanguage"><b>'._("Embed Code (e.g. Google Analytics)").'</b></label></p>
+			';
+		$PG_mainbody .= '<textarea name="embedCode">'.html_entity_decode(stripslashes($embedCode)).'</textarea>';
 
 
 		if (isset($installationKey) AND isset($cronAutoIndex) AND $cronAutoIndex == TRUE){
